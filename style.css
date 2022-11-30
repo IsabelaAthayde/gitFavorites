@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    font-size: 62.5%;
+
+    --body-bg: black;
+    --thead-bg: #092D38;
+    --tr-odd-bg: rgb(6, 22, 27, 50%);
+    --tr-even-bg: #06181C;
+    --tbody-bg: #4A808C;
+    --btn-bg: #065E7C;
+    --action-color: rgb(199, 77, 77);
+
+    --ff-primary: 'Roboto', sans-serif;
+    --text-color: white;
+}
+
+body * {
+    font-family: var(--ff-primary);
+    color: var(--text-color);
+}
+
+body {
+    font-size: 1.4rem;
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+    width: 100vw;
+
+    background-color: var(--body-bg);
+}
+
+#app {
+    padding: clamp(8rem, 3rem + 8vw, 11.5rem) 
+    clamp(2rem, 3rem + 4vw, 16rem);
+}
+
+header {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+   margin-bottom: 8.7rem;
+}
+
+#logo {
+   width: clamp(5rem, 8rem + 10vw, 18rem);
+    max-height: 3.2rem;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    white-space: nowrap;
+    clip: rect(0, 0, 0, 0);
+    border-width: 0;
+}
+
+.search  {
+    display: flex;
+    place-items: center;
+    gap: .8rem;
+}
+
+.search input, .search button {
+    height: 4rem;
+    border-radius: 5px;
+}
+
+.search input {
+    width: clamp(10rem, 10rem + 15vw, 40rem);
+    padding: 0 1.6rem;
+
+    background-color: var(--tr-even-bg);
+    border: none;
+
+}
+
+.search button {
+    width: clamp(10rem, 8rem + 6vw, 17rem);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .8rem;
+
+    background-color: var(--btn-bg);
+    color: var(--text-color);
+    border: none;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+
+
+.search button:hover {
+    background-color: var(--text-color);
+    color: var(--btn-bg);
+    cursor: pointer;
+}
+
+
+table {
+    box-shadow: 0 1rem 2rem -1rem rgba(255, 255, 255, 0.1);
+    width: 100%;
+    border-collapse: collapse;
+    overflow: scroll;
+}
+
+.container {
+    border: solid var(--tbody-bg) 1px;
+    border-radius: 12px;
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;    
+    
+    overflow: scroll;
+    max-height: 68.8rem;
+}
+.container::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.container:-webkit-scrollbar-track {
+    background: var(--body-bg)
+}
+.container::-webkit-scrollbar-thumb {
+    background: rgb(74, 74, 74);
+    border-radius: 12px;
+    margin: 10px
+}
+
+table * {
+    font-size: 1.4rem;
+    color: var(--text-color);
+    
+}
+
+table th {
+    background-color: var(--thead-bg);
+    height: 6.4rem;
+
+    text-align: start;
+    padding-left: 4rem;
+   
+}
+
+table tbody tr:nth-child(odd) {
+    background-color: var(--tr-odd-bg);
+    
+    border-bottom: var(--tbody-bg) 1px solid;
+}
+table tr:nth-child(even) {
+    background-color: var(--tr-even-bg);
+    border-bottom: var(--tbody-bg) 1px solid;
+
+}
+
+.user {
+    display: flex;
+    align-items: center;
+
+    gap: 1.6rem;
+    
+}
+
+td.user img {
+    width: 5rem;
+    height: 5rem;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+td.user p {
+    font-weight: 700;
+   
+}
+
+td.user a {
+    text-decoration: none;
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 2.8rem 0 2.8rem 4rem;
+}
+
+tbody td:last-of-type {
+    padding: 2.8rem 4rem 2.8rem 4rem;
+}
+
+td button {
+    color: var(--action-color);
+    background-color: transparent;
+    border: none;
+
+    font-weight: bold;
+}
+
+td button:hover {
+    cursor: grab;
+}
+
+@media (max-width: 700px) {
+    .search button span {
+        display: none;
+    }
+
+    .search button {
+        width: 5rem;
+    }
+
+    #app {
+        padding: 8rem 2rem;
+    }
+
+    table th {
+        padding: 2rem;;
+    }
+
+    table th:first-of-type{
+        padding: 2rem
+    }
+
+    td {
+        margin: 2.4rem 1rem;
+        padding: 0;
+    }
+}
+
+@media (min-width: 870px) {
+    .search input {
+        width: clamp(35rem, 18em + 10vw, 40rem);
+    }
+    table *, .search input {
+        font-size: 1.6rem;
+    }
+}
